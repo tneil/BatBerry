@@ -1,6 +1,6 @@
 # BatBerry Controller
 
-This repository contains the software used to control the systems of the BatBerry](http://www.batberryblog.com).  It uses a Bluetooth connection to 
+This repository contains the software used to control the systems of the [BatBerry](http://www.batberryblog.com).  It uses a Bluetooth connection to 
 pair with the car and then control the various systems. The toolit also uses the [bbUI.js](https://github.com/tneil/bbUI.js) toolkit for its UI.
 
 **Author(s)** 

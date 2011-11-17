@@ -24,4 +24,5 @@
   <rim:loadingScreen backgroundImage="images\background.png" foregroundImage="images\loading.png" onFirstLaunch="true" />
   <content src="index.htm" />
   <feature id="blackberry.system.event" />
+  <feature id="blackberry.app" />
 </widget>

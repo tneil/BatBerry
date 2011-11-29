@@ -1,28 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-<!--
-* Copyright 2010-2011 Research In Motion Limited.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
--->
-<div data-bb-type="screen" data-bb-title="Canopy &amp; Hatch">
+<div data-bb-type="screen" data-bb-title="Machine Guns">
 	<div data-bb-type="round-panel"> 
 		<div data-bb-type="panel-header">Gun doors</div>
 		<div style="margin:3px;">
 		   <p>Press and hold the desired button until the gun doors are fully opened or closed</p>
-		   <p style="text-align:center;"><img id="gundoors" src="images/guns-closed.png"/></p>
+		   <p style="text-align:center;"><img id="gundoors" src="images/guns-closed.png" style="width:397px;height:216px;"/></p>
 		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-opened.png'" >Open</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-closed.png'" >Close</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-closed.png';" >Close</div>
 	   </div>
 	</div>
 
@@ -30,7 +15,7 @@
 		<div data-bb-type="panel-header">Raise/Lower Guns</div>
 		<div style="margin:3px;">
 		   <p>Press and hold the desired button until the gun doors are fully raised or lowered</p>
-		   <p style="text-align:center;"><img id="gunposition" src="images/guns-lowered.png"/></p>
+		   <p style="text-align:center;"><img id="gunposition" src="images/guns-lowered.png" style="width:399px;height:158px;"/></p>
 		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-raised.png'" >Raise</div>
 		   <div style="height:10px;"></div>
 		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-lowered.png'" >Lower</div>
@@ -41,7 +26,10 @@
 		<div data-bb-type="panel-header">Fire Guns</div>
 		<div style="margin:3px;">
 		   <p>Press and hold to fire the machine guns</p>
-		   <div data-bb-type="button" data-bb-style="stretch">FIRE!</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onmousedown="document.getElementById('fire').play();" onmouseup="document.getElementById('fire').pause();">FIRE!</div>
+		   <audio id="fire" loop="loop" style="display:none;" >
+			  <source src="images/sound.mp3" type="audio/mp3" />
+		   </audio>
 	   </div>
 	</div>
 	<div style="height:30px;"></div>

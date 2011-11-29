@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library isWhitelist="true">
+  <extension id="webworks.bluetooth">
+    <entryClass>bluetooth.BTExtensionInterface</entryClass>
+  </extension>
+  
+  <platforms>
+    <platform value="JAVA">
+      <target version="default" config="JAVA_XHR" />
+    </platform>
+  </platforms>
+  
+  <configurations>
+    <configuration name="JAVA_XHR" version="1.0" comment="For XHR architecture for Java implementation">
+      <src type="text/java" path="bluetooth" comment="API implementation in JavaScript" />
+    </configuration>
+  </configurations>  
+
+  <features>
+    <feature id="webworks.bluetooth" version="1.0.0"/>
+  </features>
+</library>

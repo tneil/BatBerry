@@ -5,9 +5,9 @@
 		<div style="margin:3px;">
 		   <p>Press and hold the desired button until the gun doors are fully opened or closed</p>
 		   <p style="text-align:center;"><img id="gundoors" src="images/guns-closed.png" style="width:397px;height:216px;"/></p>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-opened.png'" >Open</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-opened.png';settings.sendBluetoothString('GUN_DOORS_OPEN');" >Open</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-closed.png';" >Close</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gundoors').src = 'images/guns-closed.png';settings.sendBluetoothString('GUN_DOORS_CLOSE');" >Close</div>
 	   </div>
 	</div>
 
@@ -16,9 +16,9 @@
 		<div style="margin:3px;">
 		   <p>Press and hold the desired button until the gun doors are fully raised or lowered</p>
 		   <p style="text-align:center;"><img id="gunposition" src="images/guns-lowered.png" style="width:399px;height:158px;"/></p>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-raised.png'" >Raise</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-raised.png';settings.sendBluetoothString('GUNS_UP');" >Raise</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-lowered.png'" >Lower</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('gunposition').src = 'images/guns-lowered.png';settings.sendBluetoothString('GUNS_DOWN');" >Lower</div>
 	   </div>
 	</div>
 	
@@ -26,7 +26,7 @@
 		<div data-bb-type="panel-header">Fire Guns</div>
 		<div style="margin:3px;">
 		   <p>Press and hold to fire the machine guns</p>
-		   <div data-bb-type="button" data-bb-style="stretch" onmousedown="document.getElementById('fire').play();" onmouseup="document.getElementById('fire').pause();">FIRE!</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onmousedown="document.getElementById('fire').play();settings.sendBluetoothString('GUN_FIRE_START');" onmouseup="document.getElementById('fire').pause();settings.sendBluetoothString('GUN_FIRE_END');">FIRE!</div>
 		   <audio id="fire" loop="loop" style="display:none;" >
 			  <source src="images/sound.mp3" type="audio/mp3" />
 		   </audio>

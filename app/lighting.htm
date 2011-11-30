@@ -6,9 +6,9 @@
 		   <p style="text-align:center;">
 				<img id="afterburner" style="width:385px;height:217px;" src="images/afterburner-off.jpg"/>
 		   </p>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('afterburner').src = 'images/afterburner-on.png'" >ON</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('afterburner').src = 'images/afterburner-on.png';settings.sendBluetoothString('AFTERBURNER_ON');" >ON</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('afterburner').src = 'images/afterburner-off.png';" >OFF</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('afterburner').src = 'images/afterburner-off.png';settings.sendBluetoothString('AFTERBURNER_OFF');" >OFF</div>
 	   </div>
 	</div>
 
@@ -18,9 +18,9 @@
 		   <p style="text-align:center;">
 				<img id="headlights" style="width:392px;height:217px;" src="images/headlights-off.jpg" />
 		   </p>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('headlights').src = 'images/headlights-on.png'" >ON</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('headlights').src = 'images/headlights-on.png';settings.sendBluetoothString('HEADLIGHTS_ON');" >ON</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch"  onclick="document.getElementById('headlights').src = 'images/headlights-off.png'" >OFF</div>
+		   <div data-bb-type="button" data-bb-style="stretch"  onclick="document.getElementById('headlights').src = 'images/headlights-off.png';settings.sendBluetoothString('HEADLIGHTS_OFF');" >OFF</div>
 	   </div>
 	</div>
 	<div style="height:40px"></div>

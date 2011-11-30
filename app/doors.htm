@@ -5,9 +5,9 @@
 		<div style="margin:3px;">
 		   <p>Press and hold the desired button until the canopy is fully opened or closed</p>
 		   <p style="text-align:center;"><img id="canopy" src="images/canopy-closed.png" style="width:395px;height:161px;"/></p>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('canopy').src = 'images/canopy-opened.png'" >Open</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('canopy').src = 'images/canopy-opened.png';settings.sendBluetoothString('CANOPY_OPEN');" >Open</div>
 		   <div style="height:10px;"></div>
-		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('canopy').src = 'images/canopy-closed.png';" >Close</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="document.getElementById('canopy').src = 'images/canopy-closed.png';settings.sendBluetoothString('CANOPY_CLOSE');" >Close</div>
 	   </div>
 	</div>
 
@@ -15,7 +15,7 @@
 		<div data-bb-type="panel-header">Hatch</div>
 		<p>Need into the trunk?</p>
 		<div style="margin:3px;">
-		   <div data-bb-type="button" data-bb-style="stretch" >Pop the Hatch</div>
+		   <div data-bb-type="button" data-bb-style="stretch" onclick="settings.sendBluetoothString('HATCH_OPEN');" >Pop the Hatch</div>
 	   </div>
 	</div>
 </div>

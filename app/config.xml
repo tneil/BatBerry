@@ -25,4 +25,5 @@
   <content src="index.htm" />
   <feature id="blackberry.system.event" />
   <feature id="blackberry.app" />
+  <feature id="webworks.bluetooth" />
 </widget>

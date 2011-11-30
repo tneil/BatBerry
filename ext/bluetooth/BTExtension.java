@@ -45,19 +45,22 @@ public final class BTExtension extends Scriptable
 	private static final String FIELD_CONNECT = "connect";
 	private static final String FIELD_DISCONNECT = "disconnect";
 	private static final String FIELD_LIST = "listDevices";
+	private static final String FIELD_SEND = "send";
 	
 	
 	private openConnection _openConnection = new openConnection();
 	private listKnownDevices _listKnownDevices = new listKnownDevices(); 
 	private closeConnection _closeConnection = new closeConnection();
+	private send _send = new send();
 	private ScriptableFunction _onConnected = null;
 	private ScriptableFunction _onConnectError = null;
+	private ScriptableFunction _onData = null;
 	
 	
 	// Bluetooth variables
 	private StreamConnection _bluetoothConnection;
 	private DataOutputStream _dout;
-	//private DataInputStream _din;
+	private DataInputStream _din;
 	
 	
 	/* Dispatcher! */
@@ -67,6 +70,9 @@ public final class BTExtension extends Scriptable
 		}
 		else if ( name.equals( FIELD_DISCONNECT ) ) {
 				return _closeConnection;
+		}
+		else if ( name.equals( FIELD_SEND) ) {
+				return _send;
 		}
 		else if ( name.equals( FIELD_LIST ) ) {
 				return _listKnownDevices;
@@ -118,7 +124,37 @@ public final class BTExtension extends Scriptable
 				String targetLocation = (String)args[0];   
 				_onConnected = (ScriptableFunction)args[1];
 				_onConnectError = (ScriptableFunction)args[2];
+				_onData = (ScriptableFunction)args[3];
 				new ConnectionThread(targetLocation).start();
+			}
+			catch (Exception e) {
+				throw new RuntimeException(e.getMessage());
+			}
+			return UNDEFINED;
+		}
+	}
+	
+	/* Sends data over the open connection. */
+	private final class send extends ScriptableFunction {
+			
+		public Object invoke(Object obj,Object[] args) throws Exception {
+				  
+			try
+			{
+				final String data = (String)args[0];   
+				
+				new Thread () {
+					public void run() {
+						try
+						{
+							_dout.writeUTF(data);
+						}
+						catch (Exception e) {
+							throw new RuntimeException(e.getMessage());
+						}
+					}
+				}.start();
+				
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e.getMessage());
@@ -170,6 +206,17 @@ public final class BTExtension extends Scriptable
             }
         }
         
+		 // Close the input stream
+        if (_din != null) 
+        {
+            try 
+            {
+                _din.close();
+            } 
+            catch(IOException ioe) 
+            {                
+            }
+        }
         
         // Close the output stream
         if (_dout != null) 
@@ -185,6 +232,7 @@ public final class BTExtension extends Scriptable
         
         _bluetoothConnection = null;
         _dout = null;
+		_din = null;
     }
         
 		
@@ -212,6 +260,7 @@ public final class BTExtension extends Scriptable
 								
 								_bluetoothConnection = (StreamConnection)Connector.open( serialPortInfo.toString(), Connector.READ_WRITE );
 								_dout = _bluetoothConnection.openDataOutputStream();
+								_din = _bluetoothConnection.openDataInputStream();
 								
 								final Object[] result = new Object[1];
 								result[0] = _pairedDevice;
@@ -285,74 +334,33 @@ public final class BTExtension extends Scriptable
 				try 
 				{
 				   // int type, offset, count;
-				   // String value;
-					
+				    String value;
 					_dout.flush();
-					
-					/*_dout.writeInt(CONTENTS);
-					_dout.writeUTF(_infoField.getText());*/
-					
+						
 					// Communicating with the other device indefinitely unless the
 					// connection is interrupted with an exception.
-				 /*   for (;;) 
+				    for (;;) 
 					{
-						type = _din.readInt(); // Type of operation to enact
+						value = _din.readUTF(); 
 						
-						if (type == INSERT) 
-						{
-							// Insert the selected text at the specified position.
-							offset = _din.readInt();
-							value = _din.readUTF();
-							insert(value, offset);
+						if (value != null && value.length() > 0) {
+							// Set our result data
+							final Object[] result = new Object[1];
+							result[0] = value;
+							new Thread () {
+								public void run() {
+									try
+									{
+										// Pass the result of the data back to the handle of the JavaScript callback
+										_onData.invoke(_onData, result);
+									}
+									catch (Exception e) {
+										throw new RuntimeException(e.getMessage());
+									}
+								}
+							}.start();
 						}
-						else if (type == REMOVE) 
-						{
-							// Remove characters at specified position
-							offset = _din.readInt();
-							count = _din.readInt();
-							remove(offset, count);
-						} 
-						else if (type == JUST_OPEN) 
-						{
-							// Send contents to desktop.
-							value = _infoField.getText();
-							
-							if (value == null || value.length() == 0) 
-							{
-								// Communicate that our text field is empty
-								_dout.writeInt(NO_CONTENTS);
-								_dout.flush();
-							} 
-							else 
-							{
-								// Write out the contents of the text field
-								_dout.writeInt(CONTENTS);
-								_dout.writeUTF(_infoField.getText());
-								_dout.flush();
-							}
-						} 
-						else if (type == CONTENTS) 
-						{
-							// Read in the contents and get the event lock for this
-							// application so we can update the info field.                                            
-							String contents = _din.readUTF();
-							synchronized(Application.getEventLock()) 
-							{
-								_infoField.setText(contents);
-							}
-							
-						} 
-						else if (type == NO_CONTENTS) 
-						{
-							// Do nothing
-						} 
-						else 
-						{      
-							// This should not happen. 'type' did not match any type
-							// which is suposed to be outputted.
-							throw new RuntimeException();
-						}
-					}*/
+					}
 				} 
 				catch(IOException ioe) 
 				{

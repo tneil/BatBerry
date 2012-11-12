@@ -1,0 +1,45 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<!--
+* Copyright 2010-2012 Research In Motion Limited.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+-->
+<html> 
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/batberry.css"><link />
+		<link rel="stylesheet" type="text/css" href="bbUI/bbui-0.9.5.css"><link />
+		<script type="text/javascript" src="bbUI/bbui-0.9.5.js"></script>
+		<script type="text/javascript">
+			/*var rippleLoaded = false;
+			document.addEventListener('webworksready', function(e) {
+				// This is a hack for Ripple calling webworksready multiple times
+				if (rippleLoaded) return;
+				rippleLoaded = true;
+				
+				*/
+				
+				// You must call init on bbUI before any other code loads.  
+				// If you want default functionality simply don't pass any parameters.. bb.init();
+				bb.init({actionBarDark: true,
+						controlsDark: true,
+						listsDark: true,
+						bb10ForPlayBook: true
+						});
+				bb.pushScreen('menu.htm', 'menu');
+			//}, false);
+		</script>
+	</head>
+	<body style="background-color:black;background-image: url('img/grid.png');">
+	</body>
+</html>

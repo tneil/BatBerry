@@ -9,7 +9,7 @@ pair with the car and then control the various systems. The toolit also uses the
 
 ## Tested On
 
-* BlackBerry Torch 9860 v7.0.0.x
+* BlackBerry 10 DevAlpha v10.0.6.x
 
 ## Bug Reporting and Feature Requests
 

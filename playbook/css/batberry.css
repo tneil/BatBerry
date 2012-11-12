@@ -1,11 +1,13 @@
 
+@font-face { font-family: BatBerry; src: url("digital.ttf"); } 
 
 .title {
 	color: white;
-	font-family: impact;
+	font-family: BatBerry;
 	padding-top: 10px;
 	padding-left: 30px;
 	font-weight: normal;
+	font-size: 20pt;
 }
 
 .main-section {
@@ -27,9 +29,9 @@
 }
 
 .current-view {
-	font-size: 12pt;
+	font-size: 16pt;
 	color:#808080;
-	font-family: impact;
+	font-family: BatBerry;
 	font-weight: normal;
 	padding-left: 5px;
 	border-bottom: solid 1px white;
@@ -76,14 +78,15 @@
 	text-align: center;
 	vertical-align: center;
 	background-color: black;
-	font-family: impact;
+	font-family: BatBerry;
 	border-radius: 3px;
+	font-size: 20pt;
 }
 
 .menu-button-small {
 	height: 25px;
 	line-height: 25px;
-	font-size: 10pt;
+	font-size: 14pt;
 }
 
 .menu-button-selected {
@@ -138,18 +141,18 @@
 
 .display-label {
 	color: white;
-	font-family: impact;
-	font-size: 10pt;
+	font-family: BatBerry;
+	font-size: 13pt;
 	text-align: right;
-	margin-top: -7px;
+	margin-top: -9px;
 }
 
 .display-large-label {
 	color: white;
-	font-family: impact;
-	font-size: 12pt;
+	font-family: BatBerry;
+	font-size: 14pt;
 	text-align: right;
-	margin-top: -5px;
+	margin-top: -9px;
 }
 
 .display-number {
@@ -158,28 +161,28 @@
 
 .number-large {
 	color: white;
-	font-family: impact;
-	font-size: 50pt;
+	font-family: BatBerry;
+	font-size: 65pt;
 	margin-right: 5px;
 }
 
 .measurement-large {
 	color: #954D01;
-	font-family: impact;
-	font-size: 12pt;
+	font-family: BatBerry;
+	font-size: 18pt;
 }
 
 .number {
 	color: white;
-	font-family: impact;
-	font-size: 40pt;
+	font-family: BatBerry;
+	font-size: 50pt;
 	margin-right: 5px;
 }
 
 .measurement {
 	color: #954D01;
-	font-family: impact;
-	font-size: 10pt;
+	font-family: BatBerry;
+	font-size: 15pt;
 }
 
 /* hue 28

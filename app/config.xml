@@ -14,16 +14,16 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 -->
-<widget xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.0" rim:header="RIM-Widget:rim/widget" xmlns="http://www.w3.org/ns/widgets">
+<widget xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.1" rim:header="RIM-Widget:rim/widget" xmlns="http://www.w3.org/ns/widgets">
   <rim:navigation mode="focus" />
   <name>BatBerry</name>
   <description>Application which controls the BatBerry</description>
   <author href="https://github.com/tneil">Tim Neil</author>
   <icon src="images\icon.png" />
-  <icon src="images\icon.png" rim:hover="true" />
-  <rim:loadingScreen backgroundImage="images\background.png" foregroundImage="images\loading.png" onFirstLaunch="true" />
-  <content src="index.htm" />
-  <feature id="blackberry.system.event" />
-  <feature id="blackberry.app" />
-  <feature id="webworks.bluetooth" />
+  <content src="http://CI0000003418226.rim.net/batberry/index.htm" />
+  <access uri="http://CI0000003418226.rim.net/" subdomains="true">
+	  <feature id="blackberry.system.event" />
+	  <feature id="blackberry.app" />
+	  <feature id="blackberry.app.event"/>
+   </access>
 </widget>

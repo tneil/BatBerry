@@ -1,13 +1,34 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 <html>
 	<head>
-		<meta name="x-blackberry-defaultHoverEffect" content="false" />
-		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
-		<link  rel="stylesheet" type="text/css" href="bbUI/bbUI.css"><link />
-		<script type="text/javascript" src="bbUI/bbUI.js"></script>	
+		<link  rel="stylesheet" type="text/css" href="bbUI/bbui-0.9.5.css"><link />
+		<script type="text/javascript" src="bbUI/bbui-0.9.5.js"></script>	
 		<script type="text/javascript" src="js/main.js"></script>
-
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+		<script type="text/javascript">
+			var rippleLoaded = false;
+			document.addEventListener('webworksready', function(e) {
+				// This is a hack for Ripple calling webworksready multiple times
+				if (rippleLoaded) return;
+				rippleLoaded = true;
+			
+				bb.init({actionBarDark:true, 
+						 controlsDark: true, 
+						 listsDark:true,
+						 highlightColor: '#DB9400',
+						 onscreenready: function(element, id) {
+							if (id == 'settings') {
+								settingsScreen.load(element);
+							}
+						}
+				});
+				// Push the first screen
+				bb.pushScreen('menu.htm', 'menu');	
+				// Establish our connection
+				//settings.connect();				
+			});
+		</script>
 	</head>
-	<body onload="bb.pushScreen('menu.htm', 'menu');">	
+	<body style="background-color:black;background-image: url('images/grid.png');">	
 	</body>
 </html>

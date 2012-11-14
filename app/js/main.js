@@ -24,7 +24,7 @@ settings = {
 				settings.sendQueueData();
 			}			
 		} else {
-			alert('You have not configured a Bluetooth device');
+			//alert('You have not configured a Bluetooth device');
 		}
 	},
 	// Success event when we have established a connection with the Bluetooth device
@@ -72,12 +72,14 @@ settings = {
 	}
 }
 
-// Set our screen handler for loading content
-bb.onscreenready = function(element, id) {
-	if (id == 'settings') {
-		settingsScreen.load(element);
+/* This object manages the state of the application */
+state = {
+	currentTab : 'tabHome',
+	
+	changeTab : function(value) {
+		if (value == state.currentTab) return;
+		document.getElementById(state.currentTab).style.display = 'none';
+		document.getElementById(value).style.display = '';
+		state.currentTab = value;
 	}
-};
-
-// Establish our connection
-settings.connect();
+}

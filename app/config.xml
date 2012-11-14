@@ -14,7 +14,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 -->
-<widget xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.1" rim:header="RIM-Widget:rim/widget" xmlns="http://www.w3.org/ns/widgets">
+<widget xmlns:rim="http://www.blackberry.com/ns/widgets" version="2.0.0.3" rim:header="RIM-Widget:rim/widget" xmlns="http://www.w3.org/ns/widgets">
   <rim:navigation mode="focus" />
   <name>BatBerry</name>
   <description>Application which controls the BatBerry</description>

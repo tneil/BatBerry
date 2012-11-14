@@ -1,0 +1,15 @@
+
+.highlight-box {
+	/*display:none;*/
+	position: fixed;
+	border: 3px solid #DB9400;
+	border-radius: 3px;
+}
+
+.canopy {
+	width: 400px;
+	height: 400px;
+	top: 500px;
+	left: 60px;
+	background-color: transparent;
+}

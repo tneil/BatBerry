@@ -77,21 +77,103 @@ state = {
 	currentTab : 'tabHome',
 	
 	changeTab : function(value) {
+
 		if (value == state.currentTab) return;
 		document.getElementById(state.currentTab).style.display = 'none';
 		document.getElementById(value).style.display = '';
 		state.currentTab = value;
+		
+		
 	}
 }
 
 /* this object manages the systems */
 system = {
+	canopyOpen: false,
+	afterBurnerOn: false,
+	suspensionUp: false,
+	weaponsUp: false,
 	
-	openCanopy : function() {
+	triggerCanopy : function() {
+		var canopy = document.getElementById('highlightCanopy'),
+			actionCanopy = document.getElementById('actionCanopy');
 		
+		if (system.canopyOpen) {
+			// Make our highlight disappear
+			canopy.style.opacity = '0';
+			// Change the action caption
+			actionCanopy.setCaption('Open Canopy');
+			actionCanopy.setImage('images/icons/unlocked.png');	
+		
+		} else {
+			// Make our highlight appear
+			canopy.style.opacity = '1';
+			canopy.style['-webkit-transition'] = 'opacity 0.5s ease-in-out';
+			// Change the action caption
+			actionCanopy.setCaption('Close Canopy');
+			actionCanopy.setImage('images/icons/locked.png');	
+		}
+		system.canopyOpen = !system.canopyOpen;
+	},
 	
+	triggerAfterburner : function() {
+		var afterburner = document.getElementById('highlightAfterburner'),
+			actionAfterburner = document.getElementById('actionAfterburner');
+		
+		if (system.afterBurnerOn) {
+			// Make our highlight disappear
+			afterburner.style.opacity = '0';
+			// Change the action caption
+			actionAfterburner.setCaption('Afterburner On');
+		
+		} else {
+			// Make our highlight appear
+			afterburner.style.opacity = '1';
+			afterburner.style['-webkit-transition'] = 'opacity 0.5s ease-in-out';
+			// Change the action caption
+			actionAfterburner.setCaption('Afterburner Off');
+		}
+		system.afterBurnerOn = !system.afterBurnerOn;
+	},
+	
+	triggerSuspension : function() {
+		var suspension = document.getElementById('highlightSuspension'),
+			actionSuspension = document.getElementById('actionSuspension');
+		
+		if (system.suspensionUp) {
+			// Make our highlight disappear
+			suspension.style.opacity = '0';
+			// Change the action caption
+			actionSuspension.setCaption('Suspension Up');
+			actionSuspension.setImage('images/icons/cloudUpload.png');		
+		} else {
+			// Make our highlight appear
+			suspension.style.opacity = '1';
+			suspension.style['-webkit-transition'] = 'opacity 0.5s ease-in-out';
+			// Change the action caption
+			actionSuspension.setCaption('Suspension Down');
+			actionSuspension.setImage('images/icons/cloudDownload.png');	
+		}
+		system.suspensionUp = !system.suspensionUp;
+	},
+	
+	triggerWeapons : function() {
+		var weapons = document.getElementById('highlightGuns'),
+			actionWeapons = document.getElementById('actionWeapons');
+		
+		if (system.weaponsUp) {
+			// Make our highlight disappear
+			weapons.style.opacity = '0';
+			// Change the action caption
+			actionWeapons.setCaption('Weapons Up');	
+		} else {
+			// Make our highlight appear
+			weapons.style.opacity = '1';
+			weapons.style['-webkit-transition'] = 'opacity 0.5s ease-in-out';
+			// Change the action caption
+			actionWeapons.setCaption('Weapons Down');
+		}
+		system.weaponsUp = !system.weaponsUp;
 	}
-
-
-
+	
 }

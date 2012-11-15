@@ -113,6 +113,7 @@
 	height: 100px;
 	float: right;
 	width: 150px;
+	border-radius: 4px;
 }
 
 .display-middle {

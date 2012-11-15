@@ -1,15 +1,252 @@
 
-.highlight-box {
-	/*display:none;*/
-	position: fixed;
-	border: 3px solid #DB9400;
-	border-radius: 3px;
+/* hue 26
+   saturation 67
+   lightness -48
+  */
+
+@font-face { font-family: BatBerry; src: url("digital.ttf"); } 
+  
+@-webkit-keyframes blinker {  
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
 }
 
-.canopy {
-	width: 400px;
-	height: 400px;
-	top: 500px;
-	left: 60px;
-	background-color: transparent;
+.css3-blink {
+  -webkit-animation-name: blinker;  
+  -webkit-animation-iteration-count: infinite;  
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1s; 
+}  
+
+.blueprint {
+	position: fixed;
+	top: 90px;
+	left: 170px;
 }
+
+.status-title {
+	font-family: BatBerry;
+	font-size: 40pt;
+	color: white;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+}
+  
+.highlight-box {
+	position: fixed;
+	border: 6px solid #DB9400;
+	border-radius: 6px;	
+}
+
+.caption-box {
+	opacity: 1.0;
+	position: fixed;
+	border: 3px solid #DB9400;
+	border-radius: 3px;	
+}
+
+.shade {
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.7;
+	z-index: 9;
+}
+
+/* Canopy section */
+
+.canopy-caption-outer {
+	width: 175px;
+	height: 60px;
+	top: 550px;
+	left: 550px;
+	line-height: 60px;
+	vertical-align: center;
+	text-align: center;
+	font-family: BatBerry;
+	color: white;
+	font-size: 20pt;
+	background-color: black;
+}
+
+.canopy-caption-line {
+	position:fixed;
+	background-color: #DB9400;
+	height: 3px;
+	width: 30px;
+	top: 585px;
+	left: 523px;
+}
+
+.canopy-outer {
+	opacity: 0.0;
+	width: 300px;
+	height: 300px;
+	top: 490px;
+	left: 217px;
+}
+
+.canopy-inner {
+	position: fixed;
+	left: 243px;
+	top: 543px;
+	z-index: 10;
+}
+
+/* Afterburner Section*/
+.afterburner-caption-outer {
+	width: 175px;
+	height: 60px;
+	/*top: 550px;*/
+	top: 950px;
+	left: 570px;
+	line-height: 60px;
+	vertical-align: center;
+	text-align: center;
+	font-family: BatBerry;
+	color: white;
+	font-size: 20pt;
+}
+
+.afterburner-caption-line {
+	position:fixed;
+	background-color: #DB9400;
+	height: 3px;
+	width: 124px;
+	top: 985px;
+	left: 447px;
+}
+
+.afterburner-outer {
+	opacity: 0.0;
+	width: 140px;
+	height: 200px;
+	top: 830px;
+	left: 297px;
+}
+
+.afterburner-inner {
+	position: fixed;
+	left: 305px;
+	top: 851px;
+	z-index: 10;
+}
+
+/* Suspension */
+.suspension-outer {
+	opacity: 0.0;
+
+}
+
+.suspension-outer-left {
+	width: 20px;
+	height: 570px;
+	top: 330px;
+	left: 160px;
+	position: fixed;
+	border-style: solid;
+	border-color: #DB9400;
+	border-top-width: 6px;
+	border-left-width: 6px;
+	border-bottom-width: 6px;
+	border-right-width: 0px;
+	border-bottom-left-radius: 6px;	
+}
+
+.suspension-outer-right {
+	width: 20px;
+	height: 570px;
+	top: 330px;
+	left: 559px;
+	position: fixed;
+	border-style: solid;
+	border-color: #DB9400;
+	border-top-width: 6px;
+	border-left-width: 0px;
+	border-bottom-width: 6px;
+	border-right-width: 6px;
+	border-top-right-radius: 6px;	
+	border-bottom-right-radius: 6px;
+}
+
+.suspension-inner {
+	position: fixed;
+	top: 90px;
+	left: 170px;
+}
+
+.suspension-caption-outer {
+	width: 175px;
+	height: 60px;
+	top: 267px;
+	left: 5px;
+	line-height: 60px;
+	vertical-align: center;
+	text-align: center;
+	font-family: BatBerry;
+	color: white;
+	font-size: 20pt;
+}
+
+/* Guns */
+.guns-outer {
+	opacity: 0.0;
+}
+
+.guns-outer-left {
+	width: 40px;
+	height: 180px;
+	top: 450px;
+	left: 227px;
+	position: fixed;
+	border: 6px solid #DB9400;
+	border-bottom-right-radius: 6px;	
+	border-bottom-left-radius: 6px;
+}
+
+.guns-outer-right {
+	width: 40px;
+	height: 180px;
+	top: 450px;
+	left: 467px;
+	position: fixed;
+	border: 6px solid #DB9400;
+	border-bottom-right-radius: 6px;	
+	border-bottom-left-radius: 6px;
+}
+
+.guns-inner-left {
+	position: fixed;
+	top: 474px;
+	left: 237px;
+}
+
+.guns-inner-right {
+	position: fixed;
+	top: 474px;
+	left: 477px;
+}
+
+.guns-caption-outer {
+	width: 100px;
+	height: 60px;
+	top: 418px;
+	left: 5px;
+	line-height: 60px;
+	vertical-align: center;
+	text-align: center;
+	font-family: BatBerry;
+	color: white;
+	font-size: 20pt;
+}
+
+.guns-caption-line {
+	position:fixed;
+	background-color: #DB9400;
+	height: 3px;
+	width: 400px;
+	top: 450px;
+	left: 109px;
+}
+

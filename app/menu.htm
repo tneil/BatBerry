@@ -32,36 +32,69 @@
 	
 	<!-- Systems -->
 	<div id="tabSystems" style="display:none;">
-		<table>
-			<tr>
-				<td>
-					<img src="images/car/topblueprint.png" />
-				</td>
-				<td>
-				</td>
-				
-			</tr>
-		</table>
+		<div class="status-title">SYSTEM STATUS<span class="css3-blink">...</span></div>
+		<img class="blueprint" src="images/car/topblueprint.png" />
+		
+		<!-- afterburner highlight -->
+		<div id="highlightAfterburner" class="highlight-box afterburner-outer">
+			<div class="shade"></div>
+			<img class="afterburner-inner" src="images/car/afterburner.png"/>
+			<div class="caption-box afterburner-caption-outer"><span class="css3-blink">AFTERBURNER</span></div>
+			<div class="afterburner-caption-line"></div>
+		</div>
+		
+		<!-- suspension highlight -->
+		<div id="highlightSuspension" class="suspension-outer">
+			<div class="suspension-outer-left"></div>
+			<div class="suspension-outer-right"></div>
+			<img class="suspension-inner" src="images/car/suspension.png"/>
+			<div class="caption-box suspension-caption-outer"><span class="css3-blink">SUSPENSION UP</span></div>
+		</div>
+		
 		<!-- canopy highlight -->
-		<div id="highlightCanopy" class="highlight-box canopy">
-			hello world
+		<div id="highlightCanopy" class="highlight-box canopy-outer">
+			<div class="shade"></div>
+			<img class="canopy-inner" src="images/car/canopy.png"/>
+			<div class="caption-box canopy-caption-outer"><span class="css3-blink">CANOPY OPEN</span></div>
+			<div class="canopy-caption-line"></div>
+		</div>
+		
+		<!-- canopy highlight -->
+		<div id="highlightGuns" class="guns-outer">
+			<div class="guns-outer-left">
+				<div class="shade"></div>
+			</div>
+			<div class="guns-outer-right">
+				<div class="shade"></div>
+			</div>
+			<img class="guns-inner-left" src="images/car/30cal.png"/>
+			<img class="guns-inner-right" src="images/car/30cal.png"/>
+			<div class="guns-caption-line"></div>
+			<div class="caption-box guns-caption-outer"><span class="css3-blink">30 CALS</span></div>
 		</div>
 		
 	</div>
 	
 	<!-- Settings -->
 	<div id="tabSettings" style="display:none;">
-		<div data-bb-type="round-panel"> 
-			<div data-bb-type="panel-header">Bluetooth</div>
-			<div style="margin:3px;">
-			   <div style="margin-bottom:5px;">Currently Configured Device:</div>
-			   <div id="currentlySelected" style="background-image: -webkit-gradient(linear, center top, center bottom, from(#0dacff), to(#0f75ff)); color:White;height:50px;line-height:50px;padding:4px;">NONE</div>
-		   </div>
+		<div style="background-color:#696969;padding-bottom:10px;">
+			<div data-bb-type="pill-buttons">
+				<div data-bb-type="pill-button" data-bb-selected="true" onclick="document.getElementById('btConfigured').style.display = '';document.getElementById('btAvailable').style.display = 'none';">Configured</div>
+				<div data-bb-type="pill-button" onclick="document.getElementById('btAvailable').style.display = '';document.getElementById('btConfigured').style.display = 'none';">Available</div>
+			</div>
 		</div>
-
-		<div data-bb-type="round-panel"> 
-			<div data-bb-type="panel-header">Pick A Device</div>
-			<div data-bb-type="image-list" id="itemlist">
+		<div id="btConfigured">
+			<div data-bb-type="image-list" data-bb-header-justify="left">
+				<div data-bb-type="header">Configured Bluetooth Devices</div>
+				<div data-bb-type="item" data-bb-img="images/icons/bluetooth.png" data-bb-title="BatBerry"></div>
+			</div>
+		</div>
+		<div id="btAvailable" style="display:none;">
+			<div data-bb-type="image-list" data-bb-header-justify="left">
+				<div data-bb-type="header">Configured Bluetooth Devices</div>
+				<div data-bb-type="item" data-bb-img="images/icons/bluetooth.png" data-bb-title="Tim&apos;s PlayBook"></div>
+				<div data-bb-type="item" data-bb-img="images/icons/bluetooth.png" data-bb-title="BatBerry"></div>
+				<div data-bb-type="item" data-bb-img="images/icons/bluetooth.png" data-bb-title="Headset"></div> 
 			</div>
 		</div>
 	</div>
@@ -72,7 +105,10 @@
 		<div data-bb-type="action" data-bb-style="tab" data-bb-selected="true" data-bb-img="images/icons/device.png" onclick="state.changeTab('tabHome');">Home</div>
 		<div data-bb-type="action" data-bb-style="tab" data-bb-img="images/icons/locked.png" onclick="state.changeTab('tabSystems');">Systems</div>
 		<div data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/phone.png">Launch Phone</div>
-		<div data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/unlocked.png">Open Canopy</div>
+		<div id="actionAfterburner" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/warning.png" onclick="system.triggerAfterburner();">Afterburner On</div>
+		<div id="actionSuspension" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/cloudUpload.png" onclick="system.triggerSuspension();">Suspension Up</div>
+		<div id="actionWeapons" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-img="images/icons/warning.png" onclick="system.triggerWeapons();">Weapons Up</div>
+		<div id="actionCanopy" data-bb-type="action" data-bb-style="button" data-bb-overflow="true" data-bb-pin="true" data-bb-img="images/icons/unlocked.png" onclick="system.triggerCanopy();">Open Canopy</div>
 	</div>
 </div>
 	
